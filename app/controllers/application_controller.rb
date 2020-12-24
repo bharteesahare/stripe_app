@@ -1,0 +1,15 @@
+class ApplicationController < ActionController::Base
+	# before_action :authenticate_user!
+	# before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def hello_world
+    # render inline: '<em>Hello, World!</em>'
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :username])
+  end
+  
+end
